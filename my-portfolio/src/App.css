@@ -1,0 +1,256 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive hero avatar + devices */
+.hero-avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: transparent;
+}
+.hero-avatar__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-devices {
+  width: 90%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+}
+
+/* Breakpoints */
+@media (min-width: 640px) {
+  .hero-avatar {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-avatar {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 32px;
+  }
+  .hero-devices {
+    width: 50%;
+  }
+}
+
+/* Navigation responsive styles */
+.site-nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 1000;
+  padding: 16px 0;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.nav-brand {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #6366f1;
+}
+.nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.nav-link-btn {
+  padding: 8px 16px;
+  background: transparent;
+  color: #666;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 15px;
+  position: relative;
+}
+
+.nav-link-btn::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  bottom: 2px;
+  width: calc(100% - 32px);
+  height: 2px;
+  background-color: #6366f1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease-in-out;
+}
+
+.nav-link-btn:hover {
+  color: #6366f1;
+}
+
+.nav-link-btn:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-cta {
+  padding: 8px 16px;
+  background: white;
+  color: #6366f1;
+  border: 2px solid #6366f1;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+  font-weight: bold;
+}
+
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease;
+  z-index: 1100; /* above the nav */
+  pointer-events: none; /* don't block interactions when closed */
+}
+.mobile-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -8px 0 24px rgba(0,0,0,0.12);
+  padding: 24px;
+  transform: translateX(100%); /* keep fully off-screen when closed */
+  transition: transform 250ms cubic-bezier(.2,.8,.2,1);
+  z-index: 1101; /* above the nav */
+  display: flex;
+  flex-direction: column;
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+.mobile-menu__close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  align-self: flex-end;
+  cursor: pointer;
+}
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+.mobile-menu__item {
+  padding: 12px 16px;
+  text-align: left;
+  background: transparent;
+  text-transform: capitalize;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.mobile-menu__cta {
+  background: WHITE;
+  border: 1px solid #6366f1;
+  color: #6366f1;
+  transition: all 150ms ease-in-out;
+  max-width: 135px;
+  font-weight: bold;
+}
+
+.mobile-menu__cta:hover {
+  background: #6366f1;
+  color: white;
+}
+
+.nav-cta:hover {
+  background: #6366f1;
+  color: white;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+}
+
+@keyframes progressBar {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
