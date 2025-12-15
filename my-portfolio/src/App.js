@@ -33,7 +33,7 @@ export default function Portfolio() {
     frontend: ['React.js', 'HTML5', 'CSS3', 'JavaScript (ES6+)', 'Material UI', 'Responsive Design'],
     backend: ['Node.js', 'Express.js', 'REST APIs'],
     database: ['MySQL', 'PostgreSQL'],
-    cloud: ['AWS EC2', 'AWS S3', 'AWS IAM', 'CI/CD'],
+    cloud: ['AWS EC2', 'AWS S3', 'AWS CloudFront', 'AWS Lambda', 'AWS RDS', 'AWS Container Service'],
     debugging: ['Frontend Debugging', 'Backend Debugging', 'Performance Optimization'],
   };
 
